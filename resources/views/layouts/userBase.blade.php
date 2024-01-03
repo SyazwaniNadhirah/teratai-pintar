@@ -29,7 +29,7 @@
     <link href="{{ asset('assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href=" {{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href=" {{ asset('assets/css/styleUser.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                 <img src="{{ asset('assets/img/logo.png') }}" alt="">
                 <span class="d-none d-lg-block">Teratai Pintar</span>
             </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
+
         </div><!-- End Logo -->
 
         <div class="search-bar">
@@ -59,14 +59,51 @@
                         <i class="bi bi-search"></i>
                     </a>
                 </li><!-- End Search Icon-->
-                <li class="nav-item dropdown pe-3">
+                <li class="nav-item pe-5">
+                    <a class="nav-link collapsed" href="pages-faq.html">
+                        <span class="d-none d-md-block">Home</span>
+                    </a>
+                </li><!-- End Home Page Nav -->
+                <li class="nav-item dropdown pe-5">
+                    <a class="nav-link d-flex align-items-center pe-0" href="#"
+                        data-bs-toggle="dropdown">
+                        <span class="d-none d-md-block dropdown-toggle ">Programme</span>
+                    </a><!-- End Profile Iamge Icon -->
 
+                    <ul class="dropdown-menu dropdown-menu-center ">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <span>Full Day</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <span>Half Day</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+                <li class="nav-item pe-5">
+                    <a class="nav-link collapsed" href="pages-faq.html">
+                        <span class="d-none d-md-block">Event</span>
+                    </a>
+                </li><!-- End Event Page Nav -->
+                <li class="nav-item pe-5">
+                    <a class="nav-link collapsed" href="{{ route('contactUs.create') }} ">
+                        <span class="d-none d-md-block">Contact Us</span>
+                    </a>
+                </li><!-- End Contact Us Page Nav -->
+                <li class="nav-item dropdown pe-5">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <ul class="dropdown-menu dropdown-menu-end ">
                         <li>
                             <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                                 <i class="bi bi-person"></i>
@@ -87,7 +124,6 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-
                             </a>
                         </li>
 
@@ -98,55 +134,8 @@
 
     </header><!-- End Header -->
 
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar shadow">
 
-        <ul class="sidebar-nav" id="sidebar-nav">
-            <li class="nav-item">
-                <a class="nav-link collapsed " href="{{route('admin.dashboard')}} ">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-heading">Manage</li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('program.index') }} ">
-                    <i class="bi bi-person"></i>
-                    <span>Program</span>
-                </a>
-            </li><!-- End class Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Activities</span>
-                </a>
-            </li><!-- End activites Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
-                    <i class="bi bi-card-list"></i>
-                    <span>Application</span>
-                </a>
-            </li><!-- End Application Page Nav -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('contactUs.index') }}">
-                    <i class="bi bi-card-list"></i>
-                    <span>Feedback</span>
-                </a>
-            </li><!-- End Feedback Page Nav -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
-                    <i class="bi bi-layout-text-window-reverse"></i>
-                    <span>User Management</span>
-                </a>
-            </li><!-- End Blank Page Nav -->
-        </ul>
-
-
-    </aside><!-- End Sidebar-->
-
-    <main id="main" class="main">
+    <main id="main" class="mainUser">
 
         <main class="py-4">
             @yield('content')

@@ -23,7 +23,7 @@
     <div class="col-xxl-4 col-md-6">
       <div class="card shadow card info-card revenue-card">
         <div class="card-body">
-          <h5 class="card-title">Program <span>| This Year</span></h5>
+          <h5 class="card-title">Feedback <span>| This Year</span></h5>
           <div class="d-flex align-items-center">
             <div class="ps-3">
               <h4 class="ri-book-3-line">145</h4>
@@ -42,7 +42,6 @@
 
           <div class="d-flex align-items-center">
             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-              
             </div>
             <div class="ps-3">
               <h4 class="bi bi-people">145</h4>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::where(auth()->user()->role =='1');
+        $activities = Activity::All();
+        return view('admin.activity.index', compact('activities'));
     }
 
     /**

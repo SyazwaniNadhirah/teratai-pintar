@@ -55,4 +55,9 @@ class User extends Authenticatable
             get: fn($value) => ["user", "admin"]["$value"]
         );
     }
+
+    public function contactUs()
+    {
+        return $this->hasMany(ContactUs::class);
+    }
 }

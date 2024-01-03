@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Program;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,9 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::where(auth()->user()->role == '1');
+        $programs = Program::All();
+        return view('admin.program.index',compact('programs'));
     }
 
     /**
@@ -20,7 +22,8 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::where(auth()->user()->role == '1');
+        return view('admin.program.create');
     }
 
     /**
@@ -28,23 +31,40 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ]);
+        $picturePath = $request->file('image')->store('public/banner');
+
+        Program::create([
+            'programType' => $request->programType,
+            'price' => $request->price,
+            'status' => 'Active',
+            'description' => $request->description,
+            'picture' => $picturePath,
+        ]);
+       
+        return redirect()->route('program.index')->with('success', 'Program Created!');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Program $program)
-    {
-        //
+    public function show($id)
+    { 
+        $program = Program::find($id);
+        return view('admin.program.show',compact('program'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Program $program)
+    public function edit($id)
     {
-        //
+        $program = Program::find($id);
+        return view('program.index', compact('program'));
     }
 
     /**
@@ -52,7 +72,9 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        //
+        $program->status = $request->status;
+        $program->save();
+        return redirect()->route('program.index')->with('success', ' Status Program  Successfuly Updated!');
     }
 
     /**
