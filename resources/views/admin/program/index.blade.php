@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-10">
-                                <h5 class="card-title">List Children</h5>
+                                <h5 class="card-title">List Program</h5>
                             </div>
                             <!-- Create Page-->
                             <div class="col-2">

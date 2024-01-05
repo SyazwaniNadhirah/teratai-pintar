@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applications', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignId('program_id')->nullable();
+            $table->foreignId('class_id')->nullable();
+            $table->foreignId('activity_id')->nullable();
+            $table->string('year_intake')->nullable();
+            $table->enum('status',['Pending','Approved','Rejected'])
+            ->default('Pending');
             $table->timestamps();
         });
     }

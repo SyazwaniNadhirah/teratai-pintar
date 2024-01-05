@@ -17,6 +17,7 @@
     font-family: "Open Sans", sans-serif;
     background: #f6f9ff;
     color: #444444;
+   
   }
   
   a {
@@ -42,8 +43,10 @@
   # Main
   --------------------------------------------------------------*/
   #main {
-    margin-top: 60px;
-    padding: 20px 30px;
+    /* margin-top: 60px;
+    padding: 20px 30px; */
+    margin: 0;
+    padding: 0;
     transition: all 0.3s;
   }
   

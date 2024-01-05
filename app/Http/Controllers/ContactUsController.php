@@ -27,7 +27,7 @@ class ContactUsController extends Controller
         $user = User::where('id', auth()->user()->id)->first();
         // dd($users);
         return view('user.contactUs.index', compact('user'));
-    }
+    }   
 
     /**
      * Store a newly created resource in storage.

@@ -28,7 +28,7 @@
             <div class="col-md-8">
                 <div class="form-floating mb-3">
                     <select class="form-select" id="floatingSelect" aria-label="ProgramType" name="programType" >
-                      <option selected>Please Select</option>
+                      <option selected disabled>Please Select</option>
                       <option value="Preschool (Full Day)">Preschool (Full Day)</option>
                       <option value="Preschool (Morning)">Preschool (Morning)</option>
                       <option value="Preschool (Afternoon)">Preschool (Afternoon)</option>
@@ -38,7 +38,7 @@
             </div>  
             <div class="col-md-4">
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingName" name="price" placeholder="eg:RM 800">
+                  <input type="text" class="form-control" id="floatingName" name="price" placeholder="eg:RM 800" >
                   <label for="floatingName">Price(RM)</label>
                 </div>
               </div>

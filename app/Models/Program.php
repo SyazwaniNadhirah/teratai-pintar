@@ -16,4 +16,9 @@ class Program extends Model
         'description',
         'picture',
     ];
+
+    public function application()
+    {
+        return $this->hasMany(Application::class);
+    }
 }

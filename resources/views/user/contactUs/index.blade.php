@@ -9,12 +9,9 @@
             </div>
         @endif
     </div>
-    <section class="section contact">
-
+    <section class="section contact" style="padding:20px 30px; margin-top: 60px;">
         <div class="row gy-4">
-
             <div class="col-xl-6">
-
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="info-box card bg-warning text-white">
@@ -49,7 +46,7 @@
             </div>
 
             <div class="col-xl-6">
-                <div class="card p-4">
+                <div class="card p-4 shadow ">
                     <h3>Get In Touch with Us!</h3>
                     <p class="text-muted">
                         Feel free to get in touch with us today to discover additional details about our remarkable

@@ -30,6 +30,10 @@
 
     <!-- Template Main CSS File -->
     <link href=" {{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+    
+   
+    
 </head>
 
 <body>
@@ -114,17 +118,23 @@
                     <i class="bi bi-person"></i>
                     <span>Program</span>
                 </a>
-            </li><!-- End class Page Nav -->
+            </li><!-- End class Program Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('class.index') }} ">
+                    <i class="bi bi-person"></i>
+                    <span>Class</span>
+                </a>
+            </li><!-- End class Program Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
+                <a class="nav-link collapsed" href="{{ route('event.index') }}">
                     <i class="bi bi-question-circle"></i>
-                    <span>Activities</span>
+                    <span>Event</span>
                 </a>
             </li><!-- End activites Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
+                <a class="nav-link collapsed" href="{{ route('application.indexApp') }}">
                     <i class="bi bi-card-list"></i>
                     <span>Application</span>
                 </a>
@@ -136,7 +146,7 @@
                 </a>
             </li><!-- End Feedback Page Nav -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
+                <a class="nav-link collapsed" href="{{route('admin.user')}}">
                     <i class="bi bi-layout-text-window-reverse"></i>
                     <span>User Management</span>
                 </a>
@@ -181,9 +191,12 @@
     <script src="{{ asset('assets/vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
+    
     <!-- Template Main JS File -->
     <script src=" {{ asset('assets/js/main.js') }}"></script>
 
+   
+    
 </body>
 
 </html>

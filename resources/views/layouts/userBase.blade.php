@@ -60,35 +60,27 @@
                     </a>
                 </li><!-- End Search Icon-->
                 <li class="nav-item pe-5">
-                    <a class="nav-link collapsed" href="pages-faq.html">
+                    <a class="nav-link collapsed" href="{{route('user.dashboard')}}">
                         <span class="d-none d-md-block">Home</span>
                     </a>
                 </li><!-- End Home Page Nav -->
-                <li class="nav-item dropdown pe-5">
-                    <a class="nav-link d-flex align-items-center pe-0" href="#"
-                        data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ">Programme</span>
-                    </a><!-- End Profile Iamge Icon -->
-
-                    <ul class="dropdown-menu dropdown-menu-center ">
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <span>Full Day</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <span>Half Day</span>
-                            </a>
-                        </li>
-
-                    </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
                 <li class="nav-item pe-5">
-                    <a class="nav-link collapsed" href="pages-faq.html">
+                    <a class="nav-link collapsed" href="{{route('user.program')}}">
+                        <span class="d-none d-md-block">Programme</span>
+                    </a>
+                </li><!-- End Programme Page Nav -->
+                <li class="nav-item pe-5">
+                    <a class="nav-link collapsed" href="{{route('user.class')}}">
+                        <span class="d-none d-md-block">Class</span>
+                    </a>
+                </li><!-- End Class Page Nav -->
+                <li class="nav-item pe-5">
+                    <a class="nav-link collapsed" href="{{ route('application.index') }}">
+                        <span class="d-none nav-profile d-md-block"><b>Apply</b></span>
+                    </a>
+                </li><!-- End Event Page Nav -->
+                <li class="nav-item pe-5">
+                    <a class="nav-link collapsed" href="{{ route('event.display') }}">
                         <span class="d-none d-md-block">Event</span>
                     </a>
                 </li><!-- End Event Page Nav -->
@@ -98,7 +90,7 @@
                     </a>
                 </li><!-- End Contact Us Page Nav -->
                 <li class="nav-item dropdown pe-5">
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                    <a class="nav-link d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
@@ -135,7 +127,7 @@
     </header><!-- End Header -->
 
 
-    <main id="main" class="mainUser">
+    <main id="main" class="main">
 
         <main class="py-4">
             @yield('content')

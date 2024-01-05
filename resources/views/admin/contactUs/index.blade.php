@@ -33,6 +33,7 @@
                                         <b>No</b>
                                     </th>
                                     <th>Name</th>
+                                    <th>Subject</th>
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -42,6 +43,7 @@
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $contactUs->user->name }}</td>
+                                        <td>{{ $contactUs->subject }}</td>
                                         <td>{{ $contactUs->created_at->format('d F Y') }}</td>
                                         <td>
                                              <!-- Edit Page-->
@@ -62,7 +64,7 @@
                                                 <div class="modal-body">
                                                     <form>
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6 mb-2">
                                                                 <div class="form-floating">
                                                                   <input type="text" class="form-control" id="floatingName" name="name" value="{{$contactUs->user->name }}" readonly>
                                                                   <label for="floatingName">Name</label>
@@ -74,14 +76,14 @@
                                                                   <label for="floatingName">Email</label>
                                                                 </div>
                                                               </div>
-                                                              <div class="col-md-12">
+                                                              <div class="col-md-12  mb-2">
                                                                 <div class="form-floating">
                                                                   <input type="text" class="form-control" id="floatingName" name="email" value="{{ $contactUs->subject }}" readonly>
                                                                   <label for="floatingName">Subject</label>
                                                                 </div>
                                                               </div>
                                                               <div class="col-md-12">
-                                                                <div class="form-floating mb-3">
+                                                                <div class="form-floating mb-2">
                                                                     <textarea class="form-control" id="floatingTextarea" style="height: 100px;" readonly>{{ $contactUs->message }}</textarea>
                                                                     <label for="floatingTextarea">Message</label>
                                                                   </div>
