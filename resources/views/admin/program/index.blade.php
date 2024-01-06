@@ -58,7 +58,7 @@
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $program->programType }}</td>
                                         <td>RM{{ $program->price }}</td>
-                                        <td>{{ $program->created_at->format ('d F Y') }}</td>
+                                        <td>{{ $program->created_at->format('d F Y') }}</td>
                                         @if ($program->status == 'Deactivate')
                                             <td>
 
@@ -77,6 +77,10 @@
                                             <a class="ri-file-edit-line text-success" data-bs-toggle="modal"
                                                 data-bs-target="#basicModal-{{ $program->id }}">
                                             </a>
+                                            <!-- Delete Page - Only show when status is not 'Approved' -->
+                                            <a class="ri-delete-bin-7-fill text-danger" data-bs-toggle="modal"
+                                                data-bs-target="#verticalycentered-{{ $program->id }}"></a>
+                                            <!-- End Delete Page-->
                                         </td>
                                     </tr>
                                     <!-- Edit Modal -->
@@ -89,41 +93,80 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form method="POST" action="{{ route('program.store') }}/{{ $program->id }}">
+                                                    <form method="POST"
+                                                        action="{{ route('program.store') }}/{{ $program->id }}">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-floating">
-                                                                  <input type="text" class="form-control" id="floatingName" name="programType" value="{{ $program->programType }}" readonly>
-                                                                  <label for="floatingName">Program Type</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="floatingName" name="programType"
+                                                                        value="{{ $program->programType }}" readonly>
+                                                                    <label for="floatingName">Program Type</label>
                                                                 </div>
-                                                              </div>
-                                                              <div class="col-md-6">
+                                                            </div>
+                                                            <div class="col-md-6">
                                                                 <div class="form-floating">
-                                                                  <input type="text" class="form-control" id="floatingName" name="price" value="RM {{ $program->price }}" readonly>
-                                                                  <label for="floatingName">Price</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="floatingName" name="price"
+                                                                        value="RM {{ $program->price }}" readonly>
+                                                                    <label for="floatingName">Price</label>
                                                                 </div>
-                                                              </div>
-                                                              <div class="col-md-12">
+                                                            </div>
+                                                            <div class="col-md-12">
                                                                 <div class="form-floating">
-                                                                    <select class="form-select" id="floatingSelect" aria-label="status" name="status"   value="{{ $program->status }}">
-                                                                        <option value="Active" {{ $program->status == 'Active' ? 'selected' : '' }}>Active</option>
-                                                                        <option value="Deactivate" {{ $program->status == 'Deactivate' ? 'selected' : '' }}>Deactivate</option>
+                                                                    <select class="form-select" id="floatingSelect"
+                                                                        aria-label="status" name="status"
+                                                                        value="{{ $program->status }}">
+                                                                        <option value="Active"
+                                                                            {{ $program->status == 'Active' ? 'selected' : '' }}>
+                                                                            Active</option>
+                                                                        <option value="Deactivate"
+                                                                            {{ $program->status == 'Deactivate' ? 'selected' : '' }}>
+                                                                            Deactivate</option>
                                                                     </select>
                                                                     <label for="floatingSelect">Status Program</label>
-                                                              </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
+                                            </div>
+                                        </div><!-- End Edit Modal-->
+                                    </div>
+                                     <!-- Delete Modal -->
+                                     <div class="modal fade" id="verticalycentered-{{ $program->id }}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Delete Program</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure want to delete this data?</p>
+                                                </div>
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    <form method="POST"
+                                                        action={{ route('program.destroy', $program->id) }}>
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
                                                 </div>
-                                                </form>
                                             </div>
                                         </div>
-                                    </div><!-- End Edit Modal-->
+                                    </div>
                                 @endforeach
                             </tbody>
                         </table>

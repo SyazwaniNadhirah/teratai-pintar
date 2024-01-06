@@ -24,28 +24,12 @@ class EventController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        // return view('admin.event.index', compact('events'));
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         Event::create($request->all());
         return redirect()->route('event.index')->with('success', 'Event Successfully Created!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show()
-    {
-        //
     }
 
     /**
@@ -69,11 +53,4 @@ class EventController extends Controller
     
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Event $event)
-    {
-        //
-    }
 }

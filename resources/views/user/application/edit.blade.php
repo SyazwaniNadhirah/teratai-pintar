@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-select" id="floatingSelect" aria-label="name" name="class_id">
-                                    <option selected disabled>{{ $application->programClass->name}}</option>
+                                    <option selectedF disabled>{{ $application->programClass->name}}</option>
                                     @foreach ($classes as $class)
                                         <option value="{{ $class->id }}">{{ $class->name }}</option>
                                     @endforeach

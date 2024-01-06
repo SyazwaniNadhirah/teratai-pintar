@@ -47,9 +47,11 @@ Route::middleware(['auth', 'user-role:user'])->group(function() {
 Route::middleware(['auth', 'user-role:admin'])->group(function() {
     Route::get('/admin/home', [HomeController::class, 'indexAdmin'])->name('admin.dashboard');
     Route::resource('program', ProgramController::class);
+    Route::put('program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
     Route::get('/admin/contactUs', [ContactUsController::class, 'index'])->name('contactUs.index');
     Route::resource('event', EventController::class);
     Route::resource('class', ProgramClassController::class);
+    Route::put('class/delete/{id}', [ProgramClassController::class, 'destroy'])->name('class.destroy');
     Route::get('/admin/application', [ApplicationController::class, 'indexApp'])->name('application.indexApp');
     Route::get('/admin/application/show/{id}', [ApplicationController::class, 'showApp'])->name('application.showApp');
     Route::put('/admin/application/update/{id}', [ApplicationController::class, 'updateApp'])->name('application.updateApp');

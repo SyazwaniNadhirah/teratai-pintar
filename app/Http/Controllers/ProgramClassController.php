@@ -34,11 +34,6 @@ class ProgramClassController extends Controller
      */
     public function store(Request $request)
     {
-        // $program = Program::find($request->input('program_id'));
-        // $request->merge([
-        // 'program_id' => $program->id,
-        // ]);
-        
         ProgramClass::create($request->all());
         return redirect()->route('class.index')->with('success', 'Subject Created!');
     }
@@ -53,26 +48,12 @@ class ProgramClassController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ProgramClass $programClass)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ProgramClass $programClass)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProgramClass $programClass)
+    public function destroy($id)
     {
-        //
+        $classes = ProgramClass::find($id);
+        $classes->delete();
+        return redirect()->route('class.index')->with('success', 'Class Deleted Successfully!');
     }
 }

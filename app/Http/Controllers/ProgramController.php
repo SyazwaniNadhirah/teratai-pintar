@@ -80,8 +80,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Program $program)
+    public function destroy($id)
     {
-        //
+        $program = Program::find($id);
+        $program->delete();
+        return redirect()->route('program.index')->with('success', 'Program Deleted Successfully!');
     }
 }

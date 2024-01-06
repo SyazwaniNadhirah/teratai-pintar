@@ -58,8 +58,38 @@
                                             <!-- View Page-->
                                             <a href="{{ route('class.show', ['class' => $class['id']]) }}"
                                                 class="action-icon text-secondary"><i class="ri-eye-fill"></i></a>
+                                                 <!-- Delete Page - Only show when status is not 'Approved' -->
+                                                 <a class="ri-delete-bin-7-fill text-danger" data-bs-toggle="modal"
+                                                     data-bs-target="#basicModal-{{ $class->id }}"></a>
+                                             <!-- End Delete Page-->
                                         </td>
                                     </tr>
+                                     <!-- Delete Modal -->
+                                     <div class="modal fade" id="basicModal-{{ $class->id }}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Delete Class</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure want to delete this data?</p>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <form method="POST"
+                                                        action={{ route('class.destroy', $class->id) }}>
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </tbody>
                         </table>
