@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
+
     @if ($message = session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="padding:20px 30px; margin-top: 60px;">
             <p class="text-black mb-0">{{ session()->get('success') }}</p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
